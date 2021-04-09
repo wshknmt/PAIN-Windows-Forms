@@ -1,0 +1,13 @@
+C:\Users\user\Desktop\PAIN LAB\PAIN\PAIN\bin\Debug\PAIN.exe.config
+C:\Users\user\Desktop\PAIN LAB\PAIN\PAIN\bin\Debug\PAIN.exe
+C:\Users\user\Desktop\PAIN LAB\PAIN\PAIN\bin\Debug\PAIN.pdb
+C:\Users\user\Desktop\PAIN LAB\PAIN\PAIN\obj\Debug\PAIN.csprojAssemblyReference.cache
+C:\Users\user\Desktop\PAIN LAB\PAIN\PAIN\obj\Debug\PAIN.Form1.resources
+C:\Users\user\Desktop\PAIN LAB\PAIN\PAIN\obj\Debug\PAIN.Properties.Resources.resources
+C:\Users\user\Desktop\PAIN LAB\PAIN\PAIN\obj\Debug\PAIN.csproj.GenerateResource.cache
+C:\Users\user\Desktop\PAIN LAB\PAIN\PAIN\obj\Debug\PAIN.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\PAIN LAB\PAIN\PAIN\obj\Debug\PAIN.exe
+C:\Users\user\Desktop\PAIN LAB\PAIN\PAIN\obj\Debug\PAIN.pdb
+C:\Users\user\Desktop\PAIN LAB\PAIN\PAIN\obj\Debug\PAIN.BookForm.resources
+C:\Users\user\Desktop\PAIN LAB\PAIN\PAIN\obj\Debug\PAIN.MainForm.resources
+C:\Users\user\Desktop\PAIN LAB\PAIN\PAIN\obj\Debug\PAIN.Books.resources
