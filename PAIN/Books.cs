@@ -50,10 +50,11 @@ namespace PAIN
             if (allToolStripButton.Checked || (before2000ToolStripButton.Checked && DateTime.Compare(obj.ReleaseDate, filterDate) < 0)
                || (after2000ToolStripButton.Checked && DateTime.Compare(obj.ReleaseDate, filterDate) >= 0))
             {
-                ListViewItem item = new ListViewItem();
-                item.Tag = obj;
-                UpdateItem(item);
-                booksListView.Items.Add(item);
+                //ListViewItem item = new ListViewItem();
+                //item.Tag = obj;
+                //UpdateItem(item);
+                //booksListView.Items.Add(item);
+                booksListView.Items.Add(UpdateItem(obj));
                 updateStatusLabel();
             }
             
@@ -84,7 +85,13 @@ namespace PAIN
                    
                 }
             }
-            
+            if ((before2000ToolStripButton.Checked && DateTime.Compare(book.ReleaseDate, filterDate) < 0)
+                                || (after2000ToolStripButton.Checked && DateTime.Compare(book.ReleaseDate, filterDate) >= 0))
+            {
+                booksListView.Items.Add(UpdateItem(book));
+                updateStatusLabel();
+            }
+
         }
 
         private void DeletedBook(Book book)
@@ -105,10 +112,11 @@ namespace PAIN
         {
             foreach (Book book in Document.books)
             {
-                ListViewItem item = new ListViewItem();
-                item.Tag = book;
-                booksListView.Items.Add(item);
-                Console.WriteLine($"loaded items {((Book)item.Tag).Title}");
+                //ListViewItem item = new ListViewItem();
+                //item.Tag = book;
+                //booksListView.Items.Add(item);
+                booksListView.Items.Add(UpdateItem(book));
+               // Console.WriteLine($"loaded items {((Book)item.Tag).Title}");
             }
             updateStatusLabel();
         }
@@ -116,21 +124,25 @@ namespace PAIN
         private void LoadItems(bool before2000)
         {
             DateTime filterDate = new DateTime(2000, 1, 1);
-            foreach (ListViewItem item in booksListView.Items)
+            //foreach (ListViewItem item in booksListView.Items)
+            foreach (Book book in Document.books)
             {
-                if ((before2000 && DateTime.Compare(((Book)item.Tag).ReleaseDate, filterDate) < 0)
-                    || (!before2000 && DateTime.Compare(((Book)item.Tag).ReleaseDate, filterDate) >= 0))
+                //if ((before2000 && DateTime.Compare(((Book)item.Tag).ReleaseDate, filterDate) < 0)
+                //|| (!before2000 && DateTime.Compare(((Book)item.Tag).ReleaseDate, filterDate) >= 0))
+                if ((before2000 && DateTime.Compare(book.ReleaseDate, filterDate) < 0)
+                    || (!before2000 && DateTime.Compare(book.ReleaseDate, filterDate) >= 0))
                 {
-                    Console.WriteLine($"loaded item br: {((Book)item.Tag).Title}");
-                    booksListView.Items.Add(item);
-                    
-                    
+                    //Console.WriteLine($"loaded item br: {((Book)item.Tag).Title}");
+                    //booksListView.Items.Add(item);
+                    booksListView.Items.Add(UpdateItem(book));
+
+
                 }
             }
             updateStatusLabel();
 
         }
-        private void UpdateItem(ListViewItem item)
+        private void UpdateItem(ListViewItem item )
         {
             Book book = (Book)item.Tag;
             while (item.SubItems.Count < 4)
@@ -140,6 +152,21 @@ namespace PAIN
             item.SubItems[2].Text = book.ReleaseDate.ToShortDateString();
             item.SubItems[3].Text = book.Category.ToString();
             Console.WriteLine($"updated {((Book)item.Tag).Title}");
+        }
+
+        private ListViewItem UpdateItem(Book book)
+        {
+            ListViewItem item = new ListViewItem();
+            item.Tag = book;
+            
+            while (item.SubItems.Count < 4)
+                item.SubItems.Add(new ListViewItem.ListViewSubItem());
+            item.SubItems[0].Text = book.Title.ToString();
+            item.SubItems[1].Text = book.Author.ToString();
+            item.SubItems[2].Text = book.ReleaseDate.ToShortDateString();
+            item.SubItems[3].Text = book.Category.ToString();
+            //Console.WriteLine($"updated {((Book)item.Tag).Title}");
+            return item;
         }
 
         private void UpdateItems()
