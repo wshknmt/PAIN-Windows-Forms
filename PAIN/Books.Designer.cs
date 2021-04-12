@@ -64,7 +64,7 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.booksListView);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(585, 346);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(585, 321);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -106,7 +106,7 @@
             this.booksListView.HideSelection = false;
             this.booksListView.Location = new System.Drawing.Point(0, 0);
             this.booksListView.Name = "booksListView";
-            this.booksListView.Size = new System.Drawing.Size(585, 346);
+            this.booksListView.Size = new System.Drawing.Size(585, 321);
             this.booksListView.TabIndex = 3;
             this.booksListView.UseCompatibleStateImageBehavior = false;
             this.booksListView.View = System.Windows.Forms.View.Details;
@@ -176,7 +176,7 @@
             this.after2000ToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(458, 38);
+            this.toolStrip1.Size = new System.Drawing.Size(505, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Visible = false;
             // 
@@ -185,9 +185,8 @@
             this.allToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("allToolStripButton.Image")));
             this.allToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.allToolStripButton.Name = "allToolStripButton";
-            this.allToolStripButton.Size = new System.Drawing.Size(99, 35);
+            this.allToolStripButton.Size = new System.Drawing.Size(115, 22);
             this.allToolStripButton.Text = "Wszystkie książki";
-            this.allToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.allToolStripButton.Click += new System.EventHandler(this.allToolStripButton_Click);
             // 
             // before2000ToolStripButton
@@ -195,7 +194,7 @@
             this.before2000ToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("before2000ToolStripButton.Image")));
             this.before2000ToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.before2000ToolStripButton.Name = "before2000ToolStripButton";
-            this.before2000ToolStripButton.Size = new System.Drawing.Size(172, 35);
+            this.before2000ToolStripButton.Size = new System.Drawing.Size(172, 22);
             this.before2000ToolStripButton.Text = "Książki wydane przed 2000r.";
             this.before2000ToolStripButton.Click += new System.EventHandler(this.before2000ToolStripButton_Click);
             // 
@@ -204,7 +203,7 @@
             this.after2000ToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("after2000ToolStripButton.Image")));
             this.after2000ToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.after2000ToolStripButton.Name = "after2000ToolStripButton";
-            this.after2000ToolStripButton.Size = new System.Drawing.Size(175, 35);
+            this.after2000ToolStripButton.Size = new System.Drawing.Size(175, 22);
             this.after2000ToolStripButton.Text = "Książki wydane w i po 2000r.";
             this.after2000ToolStripButton.Click += new System.EventHandler(this.after2000ToolStripButton_Click);
             // 

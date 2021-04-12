@@ -5,8 +5,7 @@ namespace PAIN
 {
     public partial class Books : Form
     {
-        //private Document Document { get; set; }
-        private readonly Document Document;
+        private Document Document;
         public Books(Document document)
         {
             InitializeComponent();
@@ -16,7 +15,6 @@ namespace PAIN
             editBookToolStripMenuItem.Enabled = false;
             deleteBookToolStripMenuItem.Enabled = false;
             this.Document = document;
-           // Document = document;
             Document.AddBookEvent += AddedBook;
             Document.EditBookEvent += EditedBook;
             Document.DeleteBookEvent += DeletedBook;
@@ -25,17 +23,11 @@ namespace PAIN
         private void newBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BookForm bookForm = new BookForm(null, Document.books);
-        
-
             if(bookForm.ShowDialog() == DialogResult.OK)
             {
                 Book newBook = new Book(bookForm.Title, bookForm.Author, bookForm.ReleaseDate, bookForm.Category);
                 Document.AddBook(newBook);
-                //updateStatusLabel();
             }
-            //BookForm bookForm = new BookForm();
-            //bookForm.MdiParent = this;
-            //bookForm.Show();
         }
 
         private void editBookToolStripMenuItem_Click(object sender, EventArgs e)
@@ -49,13 +41,8 @@ namespace PAIN
                 selectedItem.ReleaseDate = bookForm.ReleaseDate;
                 selectedItem.Category = bookForm.Category;
                 Document.EditBook(selectedItem);
-
             }
-            //BookForm bookForm = new BookForm();
-            //bookForm.MdiParent = this;
-            //bookForm.Show();
         }
-
         private void deleteBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Czy jesteś pewien, że chcesz usunąć tę książkę?", "Usuwanie książki", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -63,16 +50,12 @@ namespace PAIN
                 Book selectedItem = (Book)booksListView.SelectedItems[0].Tag;
                 Document.DeleteBook(selectedItem);
             }
-
-
         }
 
         private void Books_Load(object sender, EventArgs e)
         {
             DeleteItems();
             LoadItems();
-           // UpdateItems();
-            
         }
 
         private void AddedBook(Book obj)
@@ -81,14 +64,9 @@ namespace PAIN
             if (allToolStripButton.Checked || (before2000ToolStripButton.Checked && DateTime.Compare(obj.ReleaseDate, filterDate) < 0)
                || (after2000ToolStripButton.Checked && DateTime.Compare(obj.ReleaseDate, filterDate) >= 0))
             {
-                //ListViewItem item = new ListViewItem();
-                //item.Tag = obj;
-                //UpdateItem(item);
-                //booksListView.Items.Add(item);
                 booksListView.Items.Add(UpdateItem(obj));
                 updateStatusLabel();
             }
-
         }
 
         private void EditedBook(Book book)
@@ -98,7 +76,6 @@ namespace PAIN
             {
                 if((Book)item.Tag == book)
                 {
-
                     if ((before2000ToolStripButton.Checked && DateTime.Compare(book.ReleaseDate, filterDate) >= 0)
                                 || (after2000ToolStripButton.Checked && DateTime.Compare(book.ReleaseDate, filterDate) < 0))
                     {
@@ -113,7 +90,6 @@ namespace PAIN
                     }
                     updateStatusLabel();
                     return;
-                   
                 }
             }
             if ((before2000ToolStripButton.Checked && DateTime.Compare(book.ReleaseDate, filterDate) < 0)
@@ -122,7 +98,6 @@ namespace PAIN
                 booksListView.Items.Add(UpdateItem(book));
                 updateStatusLabel();
             }
-
         }
 
         private void DeletedBook(Book book)
@@ -131,7 +106,6 @@ namespace PAIN
             {
                 if ((Book)item.Tag == book)
                 {
-                    Console.WriteLine($"deleted all {((Book)item.Tag).Title}");
                     booksListView.Items.Remove(item);
                     updateStatusLabel();
                     return;
@@ -143,11 +117,7 @@ namespace PAIN
         {
             foreach (Book book in Document.books)
             {
-                //ListViewItem item = new ListViewItem();
-                //item.Tag = book;
-                //booksListView.Items.Add(item);
                 booksListView.Items.Add(UpdateItem(book));
-               // Console.WriteLine($"loaded items {((Book)item.Tag).Title}");
             }
             updateStatusLabel();
         }
@@ -155,35 +125,16 @@ namespace PAIN
         private void LoadItems(bool before2000)
         {
             DateTime filterDate = new DateTime(2000, 1, 1);
-            //foreach (ListViewItem item in booksListView.Items)
             foreach (Book book in Document.books)
             {
-                //if ((before2000 && DateTime.Compare(((Book)item.Tag).ReleaseDate, filterDate) < 0)
-                //|| (!before2000 && DateTime.Compare(((Book)item.Tag).ReleaseDate, filterDate) >= 0))
                 if ((before2000 && DateTime.Compare(book.ReleaseDate, filterDate) < 0)
                     || (!before2000 && DateTime.Compare(book.ReleaseDate, filterDate) >= 0))
                 {
-                    //Console.WriteLine($"loaded item br: {((Book)item.Tag).Title}");
-                    //booksListView.Items.Add(item);
                     booksListView.Items.Add(UpdateItem(book));
-
-
                 }
             }
             updateStatusLabel();
-
         }
-        /*private void UpdateItem(ListViewItem item)
-        {
-            Book book = (Book)item.Tag;
-            while (item.SubItems.Count < 4)
-                item.SubItems.Add(new ListViewItem.ListViewSubItem());
-            item.SubItems[0].Text = book.Title;
-            item.SubItems[1].Text = book.Author;
-            item.SubItems[2].Text = book.ReleaseDate.ToShortDateString();
-            item.SubItems[3].Text = book.Category.ToString();
-            Console.WriteLine($"updated {((Book)item.Tag).Title}");
-        }*/
 
         private ListViewItem UpdateItem(Book book)
         {
@@ -196,28 +147,13 @@ namespace PAIN
             item.SubItems[1].Text = book.Author.ToString();
             item.SubItems[2].Text = book.ReleaseDate.ToShortDateString();
             item.SubItems[3].Text = book.Category.ToString();
-            //Console.WriteLine($"updated {((Book)item.Tag).Title}");
             return item;
         }
-
-        /*private void UpdateItems()
-        {
-            booksListView.Items.Clear();
-            foreach (Book book in Document.books)
-            {
-                ListViewItem item = new ListViewItem();
-                item.Tag = book;
-                UpdateItem(item);
-                booksListView.Items.Add(item);
-            }
-            updateStatusLabel();
-        }*/
 
         private void DeleteItems()
         {
             booksListView.Items.Clear();
         }
-
         private void DeleteItems(bool before2000)
         {
             DateTime filterDate = new DateTime(2000, 1, 1);
@@ -231,16 +167,12 @@ namespace PAIN
                 }
             }
             updateStatusLabel();
-            
         }
-    
 
         private void updateStatusLabel()
         {
             toolStripStatusLabel1.Text = "Liczba elementów w aktywnym widoku: " + booksListView.Items.Count;
         }
-
-        
 
         private void before2000ToolStripButton_Click(object sender, EventArgs e)
         {
@@ -317,13 +249,11 @@ namespace PAIN
                 editBookToolStripMenuItem.Enabled = true;
                 deleteBookToolStripMenuItem.Enabled = true;
             }
-                
             else
             {
                 editBookToolStripMenuItem.Enabled = false;
                 deleteBookToolStripMenuItem.Enabled = false;
             }
-                
         }
 
         private void Books_FormClosing(object sender, FormClosingEventArgs e)

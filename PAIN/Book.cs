@@ -8,7 +8,6 @@ namespace PAIN
 {
     public class Book
     {
-       // private static string[] bookTypes = { "poezja", "fantastyka", "kryminal" };
         public string Title
         {
             get;
@@ -40,7 +39,5 @@ namespace PAIN
             ReleaseDate = releaseDate;
             Category = category;
         }
-
-
     }
 }

@@ -55,7 +55,6 @@ namespace PAIN
             switch (currentCategory)
             {
                 case BookCategory.poezja:
-                    
                     return Properties.Resources.poezja;
                 case BookCategory.fantastyka:
                     return Properties.Resources.fantastyka;
