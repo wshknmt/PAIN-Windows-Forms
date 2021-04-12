@@ -35,22 +35,12 @@ namespace PAIN
 
         private void bookCategoryControl_Click(object sender, EventArgs e)
         {
-            currentCategory = NextbookCategory();
+            currentCategory = (BookCategory)(((int)currentCategory + 1) % 3);//NextbookCategory();
             CategoryChanged?.Invoke(currentCategory);
             Invalidate();
         }
 
-        private BookCategory NextbookCategory(BookCategory currentCategory)
-        {
-            return (BookCategory)(((int)currentCategory + 1) % 3);
-        }
-
-        private BookCategory NextbookCategory()
-        {
-            return NextbookCategory(currentCategory);
-        }
-
-        private Bitmap GetBookCategoryImage(BookCategory currentCategory)
+        private Bitmap GetBookCategoryImage()
         {
             switch (currentCategory)
             {
@@ -62,11 +52,6 @@ namespace PAIN
                     return Properties.Resources.kryminal;
             }
             return null;
-        }
-
-        private Bitmap GetBookCategoryImage()
-        {
-            return GetBookCategoryImage(currentCategory);
         }
 
         protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
