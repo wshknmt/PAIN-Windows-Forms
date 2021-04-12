@@ -13,6 +13,8 @@ namespace PAIN
             allToolStripButton.Checked = true;
             before2000ToolStripButton.Checked = false;
             after2000ToolStripButton.Checked = false;
+            editBookToolStripMenuItem.Enabled = false;
+            deleteBookToolStripMenuItem.Enabled = false;
             this.Document = document;
            // Document = document;
             Document.AddBookEvent += AddedBook;
@@ -68,7 +70,7 @@ namespace PAIN
         private void Books_Load(object sender, EventArgs e)
         {
             DeleteItems();
-             LoadItems();
+            LoadItems();
            // UpdateItems();
             
         }
@@ -306,6 +308,22 @@ namespace PAIN
         {
             ToolStripManager.RevertMerge(((MainForm)MdiParent).booksStatusStrip, booksStatusStrip);
             ToolStripManager.RevertMerge(((MainForm)MdiParent).toolStrip1, toolStrip1);
+        }
+
+        private void booksListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (booksListView.SelectedItems.Count == 1)
+            {
+                editBookToolStripMenuItem.Enabled = true;
+                deleteBookToolStripMenuItem.Enabled = true;
+            }
+                
+            else
+            {
+                editBookToolStripMenuItem.Enabled = false;
+                deleteBookToolStripMenuItem.Enabled = false;
+            }
+                
         }
     }
 }

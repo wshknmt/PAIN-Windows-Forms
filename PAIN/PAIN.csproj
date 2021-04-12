@@ -120,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\fantastyka.jpg" />
+    <None Include="Images\ikona.png" />
     <Content Include="Images\kryminal.jpg" />
     <None Include="Images\new_window.png" />
     <Content Include="Images\poezja.jpg" />

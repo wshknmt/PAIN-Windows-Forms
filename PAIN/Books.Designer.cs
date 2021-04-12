@@ -64,7 +64,7 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.booksListView);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(585, 324);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(585, 346);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -106,10 +106,11 @@
             this.booksListView.HideSelection = false;
             this.booksListView.Location = new System.Drawing.Point(0, 0);
             this.booksListView.Name = "booksListView";
-            this.booksListView.Size = new System.Drawing.Size(585, 324);
+            this.booksListView.Size = new System.Drawing.Size(585, 346);
             this.booksListView.TabIndex = 3;
             this.booksListView.UseCompatibleStateImageBehavior = false;
             this.booksListView.View = System.Windows.Forms.View.Details;
+            this.booksListView.SelectedIndexChanged += new System.EventHandler(this.booksListView_SelectedIndexChanged);
             // 
             // columnHeaderTitle
             // 
@@ -140,7 +141,7 @@
             this.deleteBookToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(585, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(404, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
@@ -175,7 +176,7 @@
             this.after2000ToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(489, 38);
+            this.toolStrip1.Size = new System.Drawing.Size(458, 38);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Visible = false;
             // 

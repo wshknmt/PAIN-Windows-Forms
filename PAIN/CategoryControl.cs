@@ -17,9 +17,9 @@ namespace PAIN
         [Browsable(true)]
         [Editor(typeof(CategoryControlVSEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public BookCategory CurrentCategory { get { return currentCategory; } set { currentCategory = value; Invalidate(); } }
-        private BookCategory currentCategory;
+        public BookCategory currentCategory;
 
-        public event Action<BookCategory> GenreChanged;
+        public event Action<BookCategory> CategoryChanged;
 
         public CategoryControl()
         {
@@ -29,14 +29,14 @@ namespace PAIN
 
         private void bookCategoryControl_Load(object sender, EventArgs e)
         {
-            GenreChanged?.Invoke(currentCategory);
+            CategoryChanged?.Invoke(currentCategory);
             Invalidate();
         }
 
         private void bookCategoryControl_Click(object sender, EventArgs e)
         {
             currentCategory = NextbookCategory();
-            GenreChanged?.Invoke(currentCategory);
+            CategoryChanged?.Invoke(currentCategory);
             Invalidate();
         }
 
@@ -55,6 +55,7 @@ namespace PAIN
             switch (currentCategory)
             {
                 case BookCategory.poezja:
+                    
                     return Properties.Resources.poezja;
                 case BookCategory.fantastyka:
                     return Properties.Resources.fantastyka;
@@ -62,6 +63,21 @@ namespace PAIN
                     return Properties.Resources.kryminal;
             }
             return null;
+        }
+
+        private Bitmap GetBookCategoryImage()
+        {
+            return GetBookCategoryImage(currentCategory);
+        }
+
+        protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
+        {
+            e.Graphics.DrawImage(GetBookCategoryImage(), 0, 0, Size.Width, Size.Height);
+        }
+        public void updateCategory()
+        {
+            CategoryChanged?.Invoke(currentCategory);
+            Invalidate();
         }
     }
 
