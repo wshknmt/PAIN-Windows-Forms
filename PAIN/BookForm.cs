@@ -10,12 +10,18 @@ using System.Windows.Forms;
 
 namespace PAIN
 {
+    public enum BookCategory
+    {
+        poezja,
+        fantastyka,
+        kryminal
+    }
     public partial class BookForm : Form
     {
         private Book book;
         private List<Book> books;
-        enum bookCategory { poezja, fantastyka, kryminal}
-        bookCategory currentBookCategory = bookCategory.poezja;
+       
+        BookCategory currentBookCategory = BookCategory.poezja;
 
         public string Title
         {
@@ -116,18 +122,18 @@ namespace PAIN
 
         private void categoryPictureBox_Click(object sender, EventArgs e)
         {
-            currentBookCategory = (bookCategory)(((int)currentBookCategory + 1) % 3);
-            if (currentBookCategory.Equals(bookCategory.poezja))
+            currentBookCategory = (BookCategory)(((int)currentBookCategory + 1) % 3);
+            if (currentBookCategory.Equals(BookCategory.poezja))
             {
                 this.categoryPictureBox.Image = global::PAIN.Properties.Resources.poezja;
                 this.categoryComboBox.SelectedIndex = 0;
             }
-            else if (currentBookCategory.Equals(bookCategory.fantastyka))
+            else if (currentBookCategory.Equals(BookCategory.fantastyka))
             {
                 this.categoryPictureBox.Image = global::PAIN.Properties.Resources.fantastyka;
                 this.categoryComboBox.SelectedIndex = 1;
             }
-            else if (currentBookCategory.Equals(bookCategory.kryminal))
+            else if (currentBookCategory.Equals(BookCategory.kryminal))
             {
                 this.categoryPictureBox.Image = global::PAIN.Properties.Resources.kryminal;
                 this.categoryComboBox.SelectedIndex = 2;
@@ -139,7 +145,7 @@ namespace PAIN
             try
             {
                 if (categoryComboBox.SelectedIndex != 0 && categoryComboBox.SelectedIndex != 1 && 
-                    categoryComboBox.SelectedIndex != 2 /*|| categoryComboBox.Text == ""*/)
+                    categoryComboBox.SelectedIndex != 2 || categoryComboBox.Text == "")
                     throw new Exception("Należy wybrać 1 z 3 kategorii");
             }
             catch (Exception exception)

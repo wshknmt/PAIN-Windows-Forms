@@ -8,7 +8,7 @@ namespace PAIN
 {
     public class Book
     {
-        private static string[] boookTypes = { "poezja", "fantastyka", "kryminal" };
+       // private static string[] bookTypes = { "poezja", "fantastyka", "kryminal" };
         public string Title
         {
             get;

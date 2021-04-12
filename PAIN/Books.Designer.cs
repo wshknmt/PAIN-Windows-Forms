@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Books));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.booksStatusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.booksListView = new System.Windows.Forms.ListView();
             this.columnHeaderTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -49,7 +49,7 @@
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
+            this.booksStatusStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -59,12 +59,12 @@
             // 
             // toolStripContainer1.BottomToolStripPanel
             // 
-            this.toolStripContainer1.BottomToolStripPanel.Controls.Add(this.statusStrip1);
+            this.toolStripContainer1.BottomToolStripPanel.Controls.Add(this.booksStatusStrip);
             // 
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.booksListView);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(585, 262);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(585, 324);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -77,16 +77,17 @@
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.menuStrip1);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             // 
-            // statusStrip1
+            // booksStatusStrip
             // 
-            this.statusStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.booksStatusStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.booksStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 0);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(585, 22);
-            this.statusStrip1.TabIndex = 0;
-            this.statusStrip1.Text = "statusStrip1";
+            this.booksStatusStrip.Location = new System.Drawing.Point(0, 0);
+            this.booksStatusStrip.Name = "booksStatusStrip";
+            this.booksStatusStrip.Size = new System.Drawing.Size(585, 22);
+            this.booksStatusStrip.TabIndex = 0;
+            this.booksStatusStrip.Text = "statusStrip1";
+            this.booksStatusStrip.Visible = false;
             // 
             // toolStripStatusLabel1
             // 
@@ -105,7 +106,7 @@
             this.booksListView.HideSelection = false;
             this.booksListView.Location = new System.Drawing.Point(0, 0);
             this.booksListView.Name = "booksListView";
-            this.booksListView.Size = new System.Drawing.Size(585, 262);
+            this.booksListView.Size = new System.Drawing.Size(585, 324);
             this.booksListView.TabIndex = 3;
             this.booksListView.UseCompatibleStateImageBehavior = false;
             this.booksListView.View = System.Windows.Forms.View.Details;
@@ -142,6 +143,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(585, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.Visible = false;
             // 
             // newBookToolStripMenuItem
             // 
@@ -171,10 +173,11 @@
             this.allToolStripButton,
             this.before2000ToolStripButton,
             this.after2000ToolStripButton});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 24);
+            this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(489, 38);
             this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Visible = false;
             // 
             // allToolStripButton
             // 
@@ -213,6 +216,8 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Books";
             this.Text = "Książki";
+            this.Activated += new System.EventHandler(this.Books_Activated);
+            this.Deactivate += new System.EventHandler(this.Books_Deactivate);
             this.Load += new System.EventHandler(this.Books_Load);
             this.toolStripContainer1.BottomToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.BottomToolStripPanel.PerformLayout();
@@ -221,8 +226,8 @@
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.booksStatusStrip.ResumeLayout(false);
+            this.booksStatusStrip.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -235,7 +240,7 @@
 
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip booksStatusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ListView booksListView;
         private System.Windows.Forms.ToolStripMenuItem newBookToolStripMenuItem;

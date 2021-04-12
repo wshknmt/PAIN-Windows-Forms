@@ -25,13 +25,6 @@ namespace PAIN
             books.Show();
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            Books books = new Books(document);
-            books.MdiParent = this;
-            books.Show();
-        }
-
         private void horizontalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LayoutMdi(MdiLayout.TileHorizontal);
@@ -52,6 +45,11 @@ namespace PAIN
             Books books = new Books(document);
             books.MdiParent = this;
             books.Show();
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
