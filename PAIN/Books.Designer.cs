@@ -84,7 +84,7 @@
             this.toolStripStatusLabel1});
             this.booksStatusStrip.Location = new System.Drawing.Point(0, 0);
             this.booksStatusStrip.Name = "booksStatusStrip";
-            this.booksStatusStrip.Size = new System.Drawing.Size(585, 22);
+            this.booksStatusStrip.Size = new System.Drawing.Size(125, 22);
             this.booksStatusStrip.TabIndex = 0;
             this.booksStatusStrip.Text = "statusStrip1";
             this.booksStatusStrip.Visible = false;
@@ -219,6 +219,8 @@
             this.Text = "Książki";
             this.Activated += new System.EventHandler(this.Books_Activated);
             this.Deactivate += new System.EventHandler(this.Books_Deactivate);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Books_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Books_FormClosed);
             this.Load += new System.EventHandler(this.Books_Load);
             this.toolStripContainer1.BottomToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.BottomToolStripPanel.PerformLayout();

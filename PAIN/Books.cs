@@ -325,5 +325,16 @@ namespace PAIN
             }
                 
         }
+
+        private void Books_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Document.mdiChildrenCounter == 1 && e.CloseReason != CloseReason.MdiFormClosing)
+                e.Cancel = true;
+        }
+
+        private void Books_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Document.mdiChildrenCounter--;
+        }
     }
 }

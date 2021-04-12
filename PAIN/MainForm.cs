@@ -22,6 +22,7 @@ namespace PAIN
         {
             Books books = new Books(document);
             books.MdiParent = this;
+            document.mdiChildrenCounter++;
             books.Show();
         }
 
@@ -44,6 +45,7 @@ namespace PAIN
         {
             Books books = new Books(document);
             books.MdiParent = this;
+            document.mdiChildrenCounter++;
             books.Show();
         }
 

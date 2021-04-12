@@ -38,8 +38,8 @@
             this.cascadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oknaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.booksStatusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.booksStatusStrip = new System.Windows.Forms.StatusStrip();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -120,14 +120,6 @@
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
-            // booksStatusStrip
-            // 
-            this.booksStatusStrip.Location = new System.Drawing.Point(0, 453);
-            this.booksStatusStrip.Name = "booksStatusStrip";
-            this.booksStatusStrip.Size = new System.Drawing.Size(847, 22);
-            this.booksStatusStrip.TabIndex = 4;
-            this.booksStatusStrip.Text = "statusStrip1";
-            // 
             // toolStripButton1
             // 
             this.toolStripButton1.Image = global::PAIN.Properties.Resources.new_window;
@@ -136,6 +128,14 @@
             this.toolStripButton1.Size = new System.Drawing.Size(88, 22);
             this.toolStripButton1.Text = "Nowe okno";
             this.toolStripButton1.Click += new System.EventHandler(this.noweOknoToolStripMenuItem_Click);
+            // 
+            // booksStatusStrip
+            // 
+            this.booksStatusStrip.Location = new System.Drawing.Point(0, 453);
+            this.booksStatusStrip.Name = "booksStatusStrip";
+            this.booksStatusStrip.Size = new System.Drawing.Size(847, 22);
+            this.booksStatusStrip.TabIndex = 4;
+            this.booksStatusStrip.Text = "statusStrip1";
             // 
             // MainForm
             // 

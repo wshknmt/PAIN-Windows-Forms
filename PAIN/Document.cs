@@ -9,10 +9,12 @@ namespace PAIN
     public class Document
     {
         public List<Book> books = new List<Book>();
+        public int mdiChildrenCounter = 0;
 
         public event Action<Book> AddBookEvent;
         public event Action<Book> EditBookEvent;
         public event Action<Book> DeleteBookEvent;
+        
         public void AddBook(Book book)
         {
             books.Add(book);
