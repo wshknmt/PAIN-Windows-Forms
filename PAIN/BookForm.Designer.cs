@@ -54,7 +54,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 29);
+            this.label1.Location = new System.Drawing.Point(27, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 0;
@@ -64,7 +64,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 60);
+            this.label2.Location = new System.Drawing.Point(27, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 1;
@@ -74,7 +74,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 91);
+            this.label3.Location = new System.Drawing.Point(7, 91);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 13);
             this.label3.TabIndex = 2;
@@ -84,7 +84,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 122);
+            this.label4.Location = new System.Drawing.Point(17, 122);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 3;
@@ -93,7 +93,7 @@
             // titleTextBox
             // 
             this.titleTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.titleTextBox.Location = new System.Drawing.Point(101, 25);
+            this.titleTextBox.Location = new System.Drawing.Point(97, 25);
             this.titleTextBox.Name = "titleTextBox";
             this.titleTextBox.Size = new System.Drawing.Size(152, 20);
             this.titleTextBox.TabIndex = 4;
@@ -104,7 +104,7 @@
             // authorTextBox
             // 
             this.authorTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.authorTextBox.Location = new System.Drawing.Point(102, 56);
+            this.authorTextBox.Location = new System.Drawing.Point(97, 56);
             this.authorTextBox.Name = "authorTextBox";
             this.authorTextBox.Size = new System.Drawing.Size(151, 20);
             this.authorTextBox.TabIndex = 5;
@@ -139,7 +139,7 @@
             // releaseDateTimePicker
             // 
             this.releaseDateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.releaseDateTimePicker.Location = new System.Drawing.Point(101, 87);
+            this.releaseDateTimePicker.Location = new System.Drawing.Point(97, 87);
             this.releaseDateTimePicker.Name = "releaseDateTimePicker";
             this.releaseDateTimePicker.Size = new System.Drawing.Size(152, 20);
             this.releaseDateTimePicker.TabIndex = 10;
@@ -152,7 +152,7 @@
             "poezja",
             "fantastyka",
             "kryminał"});
-            this.categoryComboBox.Location = new System.Drawing.Point(101, 118);
+            this.categoryComboBox.Location = new System.Drawing.Point(97, 118);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(152, 21);
             this.categoryComboBox.TabIndex = 11;
@@ -192,7 +192,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.09859F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.90141F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.categoryComboBox, 1, 4);
             this.tableLayoutPanel2.Controls.Add(this.releaseDateTimePicker, 1, 3);
@@ -232,9 +232,10 @@
             // categoryControl1
             // 
             this.categoryControl1.CurrentCategory = PAIN.BookCategory.poezja;
+            this.categoryControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.categoryControl1.Location = new System.Drawing.Point(3, 15);
             this.categoryControl1.Name = "categoryControl1";
-            this.categoryControl1.Size = new System.Drawing.Size(146, 147);
+            this.categoryControl1.Size = new System.Drawing.Size(171, 147);
             this.categoryControl1.TabIndex = 0;
             this.categoryControl1.CategoryChanged += new System.Action<PAIN.BookCategory>(this.categoryControl1_CategoryChanged);
             // 

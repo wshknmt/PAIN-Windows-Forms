@@ -21,9 +21,6 @@ namespace PAIN
         private Book book;
         private List<Book> books;
 
-        // int currentBookCategory;
-        BookCategory currentBookCategory;
-
         public string Title
         {
             get { return titleTextBox.Text; }
@@ -48,13 +45,11 @@ namespace PAIN
             InitializeComponent();
             this.book = book;
             this.books = books;
-           // currentBookCategory = 0;
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-            //this.Close();
         }
 
         private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -125,27 +120,6 @@ namespace PAIN
             errorProvider.SetError(authorTextBox, "");
         }
 
-        /*private void categoryPictureBox_Click(object sender, EventArgs e)
-        {
-            currentBookCategory = (BookCategory)(((int)currentBookCategory + 1) % 3);
-            if (currentBookCategory.Equals(BookCategory.poezja))
-            {
-                categoryControl1.currentCategory
-                this.categoryPictureBox.Image = global::PAIN.Properties.Resources.poezja;
-                this.categoryComboBox.SelectedIndex = 0;
-            }
-            else if (currentBookCategory.Equals(BookCategory.fantastyka))
-            {
-                this.categoryPictureBox.Image = global::PAIN.Properties.Resources.fantastyka;
-                this.categoryComboBox.SelectedIndex = 1;
-            }
-            else if (currentBookCategory.Equals(BookCategory.kryminal))
-            {
-                this.categoryPictureBox.Image = global::PAIN.Properties.Resources.kryminal;
-                this.categoryComboBox.SelectedIndex = 2;
-            }
-        }*/
-
         private void categoryComboBox_Validating(object sender, CancelEventArgs e)
         {
             try
@@ -202,7 +176,6 @@ namespace PAIN
 
         private void categoryControl1_CategoryChanged(BookCategory obj)
         {
-            //currentBookCategory = (currentBookCategory + 1) % 3;
             switch (obj)
             {
                 case BookCategory.poezja:
@@ -215,23 +188,7 @@ namespace PAIN
                     this.categoryComboBox.SelectedIndex = 2;
                     break;
             }
-            /*currentBookCategory = (BookCategory)(((int)currentBookCategory + 1) % 3);
-            if (currentBookCategory.Equals(BookCategory.poezja))
-            {
-                //categoryControl1.currentCategory
-                //this.categoryPictureBox.Image = global::PAIN.Properties.Resources.poezja;
-                this.categoryComboBox.SelectedIndex = 0;
-            }
-            else if (currentBookCategory.Equals(BookCategory.fantastyka))
-            {
-               // this.categoryPictureBox.Image = global::PAIN.Properties.Resources.fantastyka;
-                this.categoryComboBox.SelectedIndex = 1;
-            }
-            else if (currentBookCategory.Equals(BookCategory.kryminal))
-            {
-                //this.categoryPictureBox.Image = global::PAIN.Properties.Resources.kryminal;
-                this.categoryComboBox.SelectedIndex = 2;
-            }*/
+            
 
         }
     }

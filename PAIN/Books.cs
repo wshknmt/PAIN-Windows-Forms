@@ -73,8 +73,9 @@ namespace PAIN
         {
             DateTime filterDate = new DateTime(2000, 1, 1);
             foreach (ListViewItem item in booksListView.Items)
-            {
-                if((Book)item.Tag == book)
+            {   
+                
+                if(ReferenceEquals(item.Tag, book))
                 {
                     if ((before2000ToolStripButton.Checked && DateTime.Compare(book.ReleaseDate, filterDate) >= 0)
                                 || (after2000ToolStripButton.Checked && DateTime.Compare(book.ReleaseDate, filterDate) < 0))
@@ -162,7 +163,6 @@ namespace PAIN
                 if ((before2000 && DateTime.Compare(((Book)item.Tag).ReleaseDate, filterDate) < 0)
                     || (!before2000 && DateTime.Compare(((Book)item.Tag).ReleaseDate, filterDate) >= 0))
                 {
-                    Console.WriteLine($"deleted: {((Book)item.Tag).Title}");
                     booksListView.Items.Remove(item);
                 }
             }

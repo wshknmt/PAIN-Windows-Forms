@@ -35,7 +35,7 @@ namespace PAIN
 
         private void bookCategoryControl_Click(object sender, EventArgs e)
         {
-            currentCategory = (BookCategory)(((int)currentCategory + 1) % 3);//NextbookCategory();
+            currentCategory = (BookCategory)(((int)currentCategory + 1) % 3);
             CategoryChanged?.Invoke(currentCategory);
             Invalidate();
         }
